@@ -52,7 +52,7 @@ public class Sprint {
 	@Column(name = "DATE_CREATED")
 	private Date dateCreated;
 	
-	@OneToMany(mappedBy = "sprint")
+	@OneToMany(mappedBy = "sprintId")
 	@JsonManagedReference(value = "sprint-userstory")
 	private List<Userstory> userStories;
 	

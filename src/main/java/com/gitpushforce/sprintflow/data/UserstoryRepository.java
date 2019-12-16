@@ -7,5 +7,5 @@ import com.gitpushforce.sprintflow.beans.Userstory;
 
 @Repository
 public interface UserstoryRepository extends JpaRepository<Userstory, Integer>{
-
+	
 }
