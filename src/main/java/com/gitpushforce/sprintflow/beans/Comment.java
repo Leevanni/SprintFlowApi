@@ -34,7 +34,7 @@ public class Comment {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "USERSTORY_ID")
 	@JsonBackReference(value = "userstory-comments")
-	private int userStoryId;
+	private Userstory userStory;
 	
 	public Comment() {
 		super();
@@ -51,14 +51,14 @@ public class Comment {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	public int getUserStoryId() {
-		return userStoryId;
+	public Userstory getUserStoryId() {
+		return userStory;
 	}
-	public void setUserStoryId(int userStoryId) {
-		this.userStoryId = userStoryId;
+	public void setUserStoryId(Userstory userStory) {
+		this.userStory = userStory;
 	}
 	@Override
 	public String toString() {
-		return "Comment [id=" + id + ", comment=" + comment + ", userStoryId=" + userStoryId + "]";
+		return "Comment [id=" + id + ", comment=" + comment + ", userStoryId=" + userStory + "]";
 	}
 }

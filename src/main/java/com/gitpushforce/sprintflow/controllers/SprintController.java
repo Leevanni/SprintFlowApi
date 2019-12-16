@@ -1,13 +1,21 @@
 package com.gitpushforce.sprintflow.controllers;
 
+import org.jboss.logging.Logger;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController // Tells Spring that this class is a controller
-public class SprintController {
+@RequestMapping("api")
+public class SprintController implements InitializingBean {
 	
-	@RequestMapping("/") // Any request (GET, POST, PUT, etc) to the root url will be handled by this method
-	public String index() {
-		return "Congratulations from SprintController.java";
+	private static final Logger log = Logger.getLogger(SprintController.class);
+	
+	
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 }
