@@ -43,7 +43,7 @@ public class Userstory {
 	@Column(name = "PRIORITY")
 	private String priority;
 	
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "userStory")
 	@JsonManagedReference(value = "userstory-comments")
 	private List<Comment> comments;
 	
@@ -56,7 +56,7 @@ public class Userstory {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "SPRINT_ID")
 	@JsonBackReference(value = "sprint-userstory")
-	private int sprintId;
+	private Sprint sprint;
 	
 	public Userstory() {
 		super();
@@ -126,18 +126,19 @@ public class Userstory {
 		this.status = status;
 	}
 
-	public int getSprintId() {
-		return sprintId;
-	}
-
-	public void setSprintId(int sprintId) {
-		this.sprintId = sprintId;
-	}
 
 	@Override
 	public String toString() {
 		return "Userstory [id=" + id + ", title=" + title + ", description=" + description + ", summary=" + summary
 				+ ", priority=" + priority + ", storyPoint=" + storyPoint + ", status=" + status + ", sprintId="
-				+ sprintId + "]";
+				+ sprint + "]";
+	}
+
+	public Sprint getSprintId() {
+		return sprint;
+	}
+
+	public void setSprintId(Sprint sprint) {
+		this.sprint = sprint;
 	}
 }
