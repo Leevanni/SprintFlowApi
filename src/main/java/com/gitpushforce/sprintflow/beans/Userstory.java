@@ -1,5 +1,6 @@
 package com.gitpushforce.sprintflow.beans;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -12,11 +13,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-
+@Component
 @Entity
 @Table(name = "USERSTORY")
 public class Userstory {

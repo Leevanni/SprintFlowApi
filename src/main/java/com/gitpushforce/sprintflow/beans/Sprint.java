@@ -14,8 +14,11 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.stereotype.Component;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+@Component
 @Entity
 @Table(name = "SPRINT")
 public class Sprint {
@@ -45,6 +48,10 @@ public class Sprint {
 	@Column(name = "END_DATE")
 	private Date endDate;
 	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "DATE_CREATED")
+	private Date dateCreated;
+	
 	@OneToMany(mappedBy = "sprint")
 	@JsonManagedReference(value = "sprint-userstory")
 	private List<Userstory> userStories;
@@ -55,6 +62,11 @@ public class Sprint {
 	@Column(name = "STATUS")
 	private String status;
 	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "TIME_STAMP")
+	private Date timeStamp;
+	
+
 	public Sprint() {
 		super();
 	}
@@ -118,10 +130,31 @@ public class Sprint {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
+	public Date getDateCreated() {
+		return dateCreated;
+	}
+	public void setDateCreated(Date dateCreated) {
+		this.endDate = dateCreated;
+	}
+	public Date getDateStarted() {
+		return startDate;
+	}
+
+	public Date getTimeStamp() {
+		return timeStamp;
+	}
+	public void setTimeStamp(Date timeStamp) {
+		this.timeStamp = timeStamp;
+	}
+	
 	@Override
 	public String toString() {
 		return "Sprint [id=" + id + ", name=" + name + ", description=" + description + ", reviewDetails="
 				+ reviewDetails + ", retroDetails=" + retroDetails + ", startDate=" + startDate + ", endDate=" + endDate
-				+ ", sprintSummary=" + sprintSummary + ", status=" + status + "]";
+				+ ", dateCreated=" + dateCreated + ", sprintSummary=" + sprintSummary
+				+ ", status=" + status + ", timeStamp=" + timeStamp + "]";
 	}
+	
+	
 }
