@@ -52,7 +52,7 @@ public class Sprint {
 	@Column(name = "DATE_CREATED")
 	private Date dateCreated;
 	
-	@OneToMany(mappedBy = "sprintId")
+	@OneToMany(mappedBy = "sprint")
 	@JsonManagedReference(value = "sprint-userstory")
 	private List<Userstory> userStories;
 	
@@ -63,7 +63,7 @@ public class Sprint {
 	private String status;
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name = "TIME_STAMP")
+	@Column(name = "TIMESTAMP")
 	private Date timeStamp;
 	
 

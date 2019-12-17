@@ -47,7 +47,7 @@ public class Userstory {
 	@JsonManagedReference(value = "userstory-comments")
 	private List<Comment> comments;
 	
-	@Column(name = "STORY_POINT")
+	@Column(name = "STORYPOINT")
 	private int storyPoint;
 	
 	@Column(name = "STATUS")

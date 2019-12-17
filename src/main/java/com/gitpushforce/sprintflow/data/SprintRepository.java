@@ -8,10 +8,11 @@ import com.gitpushforce.sprintflow.beans.Sprint;
 @Repository
 public interface SprintRepository extends JpaRepository<Sprint, Integer>{
 	
-/*
- *  If we need crud operations other than the ones that the JpaRespository
- *  extends then we can create out own
- */
+	/*
+	 *  If we need crud operations other than the ones that the JpaRespository
+	 *  extends then we can create out own
+	 */
+	
 	
 
 
