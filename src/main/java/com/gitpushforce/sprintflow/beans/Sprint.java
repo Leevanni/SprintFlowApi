@@ -1,7 +1,8 @@
 package com.gitpushforce.sprintflow.beans;
 
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -53,7 +54,7 @@ public class Sprint {
 	
 	@OneToMany(mappedBy = "sprint")
 	@JsonManagedReference(value = "sprint-userstories")
-	private List<Userstory> userstories;
+	private Set<Userstory> userStories;
 	
 	@Column(name = "SPRINT_SUMMARY")
 	private String sprintSummary;
@@ -65,7 +66,6 @@ public class Sprint {
 	@Column(name = "TIMESTAMP")
 	private Date timeStamp;
 	
-
 	public Sprint() {
 		super();
 	}
@@ -111,11 +111,11 @@ public class Sprint {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
-	public List<Userstory> getUserStories() {
-		return userstories;
+	public Set<Userstory> getUserStories() {
+		return userStories;
 	}
-	public void setUserStories(List<Userstory> userStories) {
-		this.userstories = userStories;
+	public void setUserStories(Set<Userstory> userstories) {
+		this.userStories = userstories;
 	}
 	public String getSprintSummary() {
 		return sprintSummary;
@@ -147,7 +147,6 @@ public class Sprint {
 		this.timeStamp = timeStamp;
 	}
 	
-	
 	@Override
 	public String toString() {
 		return "Sprint [id=" + id + ", name=" + name + ", description=" + description + ", reviewDetails="
@@ -155,6 +154,4 @@ public class Sprint {
 				+ ", dateCreated=" + dateCreated + ", sprintSummary=" + sprintSummary
 				+ ", status=" + status + ", timeStamp=" + timeStamp + "]";
 	}
-	
-	
 }

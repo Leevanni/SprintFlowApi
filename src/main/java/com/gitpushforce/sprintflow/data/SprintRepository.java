@@ -19,29 +19,28 @@ public interface SprintRepository extends JpaRepository<Sprint, Integer>{
 	
 	
 	/**
-	 * This method returns the top three most recent active sprints for the dashboard page.
+	 * This method returns the top 3 most recent active sprints for the dashboard page.
 	 * @return
 	 */
-	@Query("select u from Userstory where u.status = 'active' order by des limit 3")
-	public List<Sprint> findTop3ActiveSprints();
-	
+	//@Query("select u from Userstory where u.status = 'active' order by des limit 3")
+	//public List<Sprint> findTop3ActiveSprints();
 	
 	/**
-	 * This 
+	 * This returns the top 4 recently completed sprints for the dashboard page.
 	 * @return
 	 */
-	@Query("select u from Userstory where u.status = 'complete' order by des limit 3")
-	public List<Sprint> findTop4CompleteSprints();
+	//@Query("select u from Userstory where u.status = 'complete' order by des limit 3")
+	//public List<Sprint> findTop4CompleteSprints();
 	
 	/**
-	 * This method returns the top 4 most recent completed sprints for the dashboard page.
+	 * This returns the sprint with the id of the parameter and includes the userstories as well as comment.
+	 * @param id
 	 * @return
 	 */
-	//public List<Sprint> findTop4CompletedSprints();
-	
-	
-	@Query("select s from Sprint s inner join s.userstories where s.id = ?1")
+	@Query("select s from Sprint s inner join s.userStories where s.id = ?1")
 	public Sprint findByIdJoinUserstories(int id);
+	
+	
 	
 
 

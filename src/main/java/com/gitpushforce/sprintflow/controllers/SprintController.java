@@ -51,12 +51,15 @@ public class SprintController implements InitializingBean {
 		return new ResponseEntity<List<Sprint>>(sprintservice.findAll(), HttpStatus.OK);
 	}
 	
-	
+	/*
 	@GetMapping(value = "/sprints/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Sprint> findByIdJoinUserstories(@PathVariable int id) {
 		return new ResponseEntity<Sprint>(sprintservice.findByIdJoinUserstores(id), HttpStatus.OK);
 	}
+	*/
 	
-	
-	
+	@GetMapping(value = "/sprints/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Sprint> findByIdJoinUserstories(@PathVariable int id) {
+		return new ResponseEntity<Sprint> (sprintservice.findByIdJoinUserstores(id), HttpStatus.OK);
+	}
 }

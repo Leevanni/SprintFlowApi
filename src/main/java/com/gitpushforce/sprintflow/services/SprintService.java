@@ -1,6 +1,7 @@
 package com.gitpushforce.sprintflow.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -54,6 +55,17 @@ public class SprintService {
 	public Sprint findByIdJoinUserstores(int id) {
 		return sprintRepository.findByIdJoinUserstories(id);
 	}
+	
+	
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 *
+	public Sprint findById(int id) {
+		return sprintRepository.findById(id).get();
+	}
+	*/
 	
 	
 	

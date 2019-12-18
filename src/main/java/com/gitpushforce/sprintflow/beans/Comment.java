@@ -52,9 +52,8 @@ public class Comment {
 		return userStory;
 	}
 	
-	@JsonIgnore
-	public void setUserStoryId(Userstory userStory) {
-		this.userStory = userStory;
+	public void setUserStoryId(Userstory userstory) {
+		this.userStory = userstory;
 	}
 	@Override
 	public String toString() {
