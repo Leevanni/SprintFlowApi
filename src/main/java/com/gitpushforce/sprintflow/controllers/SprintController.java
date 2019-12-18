@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.jboss.logging.Logger;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,6 +37,7 @@ public class SprintController implements InitializingBean {
 	@Autowired
 	private SprintService sprintservice;
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping(value = "/sprint", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@Transactional(propagation = Propagation.REQUIRES_NEW)
 	public ResponseEntity<Sprint> create(@Valid @RequestBody Sprint sprint) {
@@ -45,12 +46,14 @@ public class SprintController implements InitializingBean {
 	}
 	
 	@GetMapping
+	@CrossOrigin(origins = "http://localhost:4200")
 	public ResponseEntity<List<Sprint>> findAll() {
 		return new ResponseEntity<List<Sprint>>(sprintservice.findAll(), HttpStatus.OK);
 	}
 	
 	
 	@GetMapping(value = "/sprints/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@CrossOrigin(origins = "http://localhost:4200")
 	public ResponseEntity<Sprint> findByIdJoinUserstories(@PathVariable int id) {
 		return new ResponseEntity<Sprint>(sprintservice.findByIdJoinUserstores(id), HttpStatus.OK);
 	}
