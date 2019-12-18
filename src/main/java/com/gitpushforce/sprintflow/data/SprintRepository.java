@@ -13,6 +13,4 @@ public interface SprintRepository extends JpaRepository<Sprint, Integer>{
  *  extends then we can create out own
  */
 	
-
-
 }
