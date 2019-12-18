@@ -11,5 +11,4 @@ public class SprintFlowApiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SprintFlowApiApplication.class, args);
 	}
-
 }

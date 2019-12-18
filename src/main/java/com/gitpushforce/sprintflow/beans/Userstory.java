@@ -1,6 +1,5 @@
 package com.gitpushforce.sprintflow.beans;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -13,12 +12,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Component
@@ -47,7 +45,7 @@ public class Userstory {
 	@JsonManagedReference(value = "userstory-comments")
 	private List<Comment> comments;
 	
-	@Column(name = "STORY_POINT")
+	@Column(name = "STORYPOINT")
 	private int storyPoint;
 	
 	@Column(name = "STATUS")
@@ -55,7 +53,7 @@ public class Userstory {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "SPRINT_ID")
-	@JsonBackReference(value = "sprint-userstory")
+	//@JsonBackReference(value = "sprint-userstories")
 	private Sprint sprint;
 	
 	public Userstory() {
@@ -134,10 +132,12 @@ public class Userstory {
 				+ sprint + "]";
 	}
 
+	@JsonIgnore
 	public Sprint getSprintId() {
 		return sprint;
 	}
-
+	
+	@JsonIgnore
 	public void setSprintId(Sprint sprint) {
 		this.sprint = sprint;
 	}
