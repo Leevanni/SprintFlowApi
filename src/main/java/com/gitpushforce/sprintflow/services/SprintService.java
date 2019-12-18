@@ -68,8 +68,8 @@ public class SprintService {
 	*/
 	
 	
-	
-	
-	
-	
+	public void deleteSprint(int id) {
+		sprintRepository.deleteById(id);
+		
+	}
 }
