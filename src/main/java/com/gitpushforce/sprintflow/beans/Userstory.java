@@ -15,6 +15,8 @@ import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Component
@@ -51,7 +53,7 @@ public class Userstory {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "SPRINT_ID")
-	@JsonBackReference(value = "sprint-userstories")
+	//@JsonBackReference(value = "sprint-userstories")
 	private Sprint sprint;
 	
 	public Userstory() {
@@ -130,10 +132,12 @@ public class Userstory {
 				+ sprint + "]";
 	}
 
+	@JsonIgnore
 	public Sprint getSprintId() {
 		return sprint;
 	}
-
+	
+	@JsonIgnore
 	public void setSprintId(Sprint sprint) {
 		this.sprint = sprint;
 	}

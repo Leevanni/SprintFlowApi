@@ -9,12 +9,31 @@ insert into SPRINT (sprint_id, name, description, review_details, retro_details,
 insert into SPRINT (sprint_id, name, description, review_details, retro_details, start_date, end_date, date_created, status, timestamp) values (9, 'Aerified', 'Nondisplaced fracture of lateral end of right clavicle, initial encounter for closed fracture', 'Removal of Drainage Device from Lower Muscle, Percutaneous Endoscopic Approach', 'Revision of Infusion Device in Upper Vein, External Approach', '2019-08-10', '2019-07-31', '2019-08-12', 'IDR', '2019-04-20');
 insert into SPRINT (sprint_id, name, description, review_details, retro_details, start_date, end_date, date_created, status, timestamp) values (10, 'Voyatouch', 'Nondisplaced comminuted fracture of shaft of ulna, right arm, initial encounter for closed fracture', 'Transfer Right Foot Skin, External Approach', 'Dilation of Right Internal Mammary Artery with Three Intraluminal Devices, Percutaneous Endoscopic Approach', '2019-08-10', '2019-07-31', '2019-08-12', 'IDR', '2019-04-20');
 
-insert into USERSTORY (userstory_id, title, description, summary, priority, storypoint, status) values (1, 'Flexidy', 'Malignant neoplasm of long bones of left lower limb', 'Fluoroscopy Intercos/Bronc A w L Osm Contrast, Laser Intraop', 'application/pdf', 1, 'mastercard');
-insert into USERSTORY (userstory_id, title, description, summary, priority, storypoint, status) values (2, 'Flexidy', 'Malignant neoplasm of long bones of left lower limb', 'Fluoroscopy Intercos/Bronc A w L Osm Contrast, Laser Intraop', 'application/pdf', 1, 'mastercard');
-insert into USERSTORY (userstory_id, title, description, summary, priority, storypoint, status) values (3, 'Flexidy', 'Malignant neoplasm of long bones of left lower limb', 'Fluoroscopy Intercos/Bronc A w L Osm Contrast, Laser Intraop', 'application/pdf', 1, 'mastercard');
-insert into USERSTORY (userstory_id, title, description, summary, priority, storypoint, status) values (4, 'Flexidy', 'Malignant neoplasm of long bones of left lower limb', 'Fluoroscopy Intercos/Bronc A w L Osm Contrast, Laser Intraop', 'application/pdf', 1, 'mastercard');
-insert into USERSTORY (userstory_id, title, description, summary, priority, storypoint, status) values (5, 'Flexidy', 'Malignant neoplasm of long bones of left lower limb', 'Fluoroscopy Intercos/Bronc A w L Osm Contrast, Laser Intraop', 'application/pdf', 1, 'mastercard');
-insert into USERSTORY (userstory_id, title, description, summary, priority, storypoint, status) values (6, 'Flexidy', 'Malignant neoplasm of long bones of left lower limb', 'Fluoroscopy Intercos/Bronc A w L Osm Contrast, Laser Intraop', 'application/pdf', 1, 'mastercard');
-insert into USERSTORY (userstory_id, title, description, summary, priority, storypoint, status) values (7, 'Flexidy', 'Malignant neoplasm of long bones of left lower limb', 'Fluoroscopy Intercos/Bronc A w L Osm Contrast, Laser Intraop', 'application/pdf', 1, 'mastercard');
-insert into USERSTORY (userstory_id, title, description, summary, priority, storypoint, status) values (8, 'Flexidy', 'Malignant neoplasm of long bones of left lower limb', 'Fluoroscopy Intercos/Bronc A w L Osm Contrast, Laser Intraop', 'application/pdf', 1, 'mastercard');
+insert into USERSTORY (userstory_id, title, description, summary, priority, storypoint, status, sprint_id) values (1, 'Flexidy', 'Malignant neoplasm of long bones of left lower limb', 'Fluoroscopy Intercos/Bronc A w L Osm Contrast, Laser Intraop', 'application/pdf', 1, 'mastercard', 1);
+insert into USERSTORY (userstory_id, title, description, summary, priority, storypoint, status, sprint_id) values (2, 'Flexidy', 'Malignant neoplasm of long bones of left lower limb', 'Fluoroscopy Intercos/Bronc A w L Osm Contrast, Laser Intraop', 'application/pdf', 1, 'mastercard', 2);
+insert into USERSTORY (userstory_id, title, description, summary, priority, storypoint, status, sprint_id) values (3, 'Flexidy', 'Malignant neoplasm of long bones of left lower limb', 'Fluoroscopy Intercos/Bronc A w L Osm Contrast, Laser Intraop', 'application/pdf', 1, 'mastercard', 3);
+insert into USERSTORY (userstory_id, title, description, summary, priority, storypoint, status, sprint_id) values (4, 'Flexidy', 'Malignant neoplasm of long bones of left lower limb', 'Fluoroscopy Intercos/Bronc A w L Osm Contrast, Laser Intraop', 'application/pdf', 1, 'mastercard', 4);
+insert into USERSTORY (userstory_id, title, description, summary, priority, storypoint, status, sprint_id) values (5, 'Flexidy', 'Malignant neoplasm of long bones of left lower limb', 'Fluoroscopy Intercos/Bronc A w L Osm Contrast, Laser Intraop', 'application/pdf', 1, 'mastercard', 5);
+insert into USERSTORY (userstory_id, title, description, summary, priority, storypoint, status, sprint_id) values (6, 'Flexidy', 'Malignant neoplasm of long bones of left lower limb', 'Fluoroscopy Intercos/Bronc A w L Osm Contrast, Laser Intraop', 'application/pdf', 1, 'mastercard', 6);
+insert into USERSTORY (userstory_id, title, description, summary, priority, storypoint, status, sprint_id) values (7, 'Flexidy', 'Malignant neoplasm of long bones of left lower limb', 'Fluoroscopy Intercos/Bronc A w L Osm Contrast, Laser Intraop', 'application/pdf', 1, 'mastercard', 7);
+insert into USERSTORY (userstory_id, title, description, summary, priority, storypoint, status, sprint_id) values (8, 'Flexidy', 'Malignant neoplasm of long bones of left lower limb', 'Fluoroscopy Intercos/Bronc A w L Osm Contrast, Laser Intraop', 'application/pdf', 1, 'mastercard', 8);
+
+
+insert into COMMENT (comment_id, comment, userstory_id) values (1, 'Malignant neoplasm of long bones of left lower limb', 1);
+insert into COMMENT (comment_id, comment, userstory_id) values (2, 'Lorem ipsum dolor sit amet', 2);
+insert into COMMENT (comment_id, comment, userstory_id) values (3, 'consectetur adipiscing elit', 3);
+insert into COMMENT (comment_id, comment, userstory_id) values (4, 'sed do eiusmod tempor incididunt', 4);
+insert into COMMENT (comment_id, comment, userstory_id) values (5, 'ut labore et dolore magna aliqua', 5);
+insert into COMMENT (comment_id, comment, userstory_id) values (6, 'Ut enim ad minim veniam', 6);
+insert into COMMENT (comment_id, comment, userstory_id) values (7, 'quis nostrud exercitation ullamco', 7);
+insert into COMMENT (comment_id, comment, userstory_id) values (8, 'laboris nisi ut aliquip ex ea commodo consequat', 8);
+insert into COMMENT (comment_id, comment, userstory_id) values (9, 'Duis aute irure dolor in reprehenderit in voluptate', 1);
+insert into COMMENT (comment_id, comment, userstory_id) values (10, 'velit esse cillum dolore eu fugiat nulla pariatur', 2);
+insert into COMMENT (comment_id, comment, userstory_id) values (11, 'Excepteur sint occaecat cupidatat non proident', 3);
+insert into COMMENT (comment_id, comment, userstory_id) values (12, 'sunt in culpa qui officia deserunt', 4);
+insert into COMMENT (comment_id, comment, userstory_id) values (13, 'mollit anim id est laborum', 5);
+insert into COMMENT (comment_id, comment, userstory_id) values (14, 'aute irure dolor occaecat cupidatat', 6);
+insert into COMMENT (comment_id, comment, userstory_id) values (15, 'tempor incididunt Excepteur sint occaecat', 7);
+insert into COMMENT (comment_id, comment, userstory_id) values (16, 'irure dolor cillum dolore eu fugiat', 8);
+
 
