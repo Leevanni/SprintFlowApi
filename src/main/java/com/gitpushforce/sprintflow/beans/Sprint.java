@@ -2,8 +2,6 @@ package com.gitpushforce.sprintflow.beans;
 
 import java.util.Date;
 import java.util.List;
-
-import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -53,8 +51,8 @@ public class Sprint {
 	private Date dateCreated;
 	
 	@OneToMany(mappedBy = "sprint")
-	@JsonManagedReference(value = "sprint-userstory")
-	private List<Userstory> userStories;
+	@JsonManagedReference(value = "sprint-userstories")
+	private List<Userstory> userstories;
 	
 	@Column(name = "SPRINT_SUMMARY")
 	private String sprintSummary;
@@ -113,10 +111,10 @@ public class Sprint {
 		this.endDate = endDate;
 	}
 	public List<Userstory> getUserStories() {
-		return userStories;
+		return userstories;
 	}
 	public void setUserStories(List<Userstory> userStories) {
-		this.userStories = userStories;
+		this.userstories = userStories;
 	}
 	public String getSprintSummary() {
 		return sprintSummary;
