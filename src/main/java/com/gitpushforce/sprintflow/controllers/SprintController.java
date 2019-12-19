@@ -52,7 +52,7 @@ public class SprintController implements InitializingBean {
 	}
 	
 	
-	@GetMapping(value = "/sprints/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/sprint/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@CrossOrigin(origins = "http://localhost:4200")
 	public ResponseEntity<Sprint> findByIdJoinUserstories(@PathVariable int id) {
 		return new ResponseEntity<Sprint>(sprintservice.findByIdJoinUserstores(id), HttpStatus.OK);
