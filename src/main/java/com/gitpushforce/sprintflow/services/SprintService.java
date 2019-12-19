@@ -27,7 +27,6 @@ public class SprintService {
 	public List<Sprint> findAll(){
 		return sprintRepository.findAll();
 	}
-	
 	/**
 	 * Saves a sprint in the database
 	 * @param sprint
