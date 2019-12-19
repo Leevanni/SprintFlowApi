@@ -1,6 +1,6 @@
 package com.gitpushforce.sprintflow.beans;
 
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -43,7 +43,7 @@ public class Userstory {
 	
 	@OneToMany(mappedBy = "userStory")
 	@JsonManagedReference(value = "userstory-comments")
-	private List<Comment> comments;
+	private Set<Comment> comments;
 	
 	@Column(name = "STORYPOINT")
 	private int storyPoint;
@@ -53,7 +53,7 @@ public class Userstory {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "SPRINT_ID")
-	//@JsonBackReference(value = "sprint-userstories")
+	@JsonBackReference(value = "sprint-userstories")
 	private Sprint sprint;
 	
 	public Userstory() {
@@ -100,11 +100,11 @@ public class Userstory {
 		this.priority = priority;
 	}
 
-	public List<Comment> getComments() {
+	public Set<Comment> getComments() {
 		return comments;
 	}
 
-	public void setComments(List<Comment> comments) {
+	public void setComments(Set<Comment> comments) {
 		this.comments = comments;
 	}
 
@@ -124,21 +124,19 @@ public class Userstory {
 		this.status = status;
 	}
 
+	@JsonIgnore
+	public Sprint getSprintId() {
+		return sprint;
+	}
+	
+	public void setSprintId(Sprint sprint) {
+		this.sprint = sprint;
+	}
 
 	@Override
 	public String toString() {
 		return "Userstory [id=" + id + ", title=" + title + ", description=" + description + ", summary=" + summary
 				+ ", priority=" + priority + ", storyPoint=" + storyPoint + ", status=" + status + ", sprintId="
 				+ sprint + "]";
-	}
-
-	@JsonIgnore
-	public Sprint getSprintId() {
-		return sprint;
-	}
-	
-	@JsonIgnore
-	public void setSprintId(Sprint sprint) {
-		this.sprint = sprint;
 	}
 }

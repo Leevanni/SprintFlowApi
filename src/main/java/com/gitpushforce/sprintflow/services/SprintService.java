@@ -1,6 +1,7 @@
 package com.gitpushforce.sprintflow.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -56,8 +57,19 @@ public class SprintService {
 	}
 	
 	
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 *
+	public Sprint findById(int id) {
+		return sprintRepository.findById(id).get();
+	}
+	*/
 	
 	
-	
-	
+	public void deleteSprint(int id) {
+		sprintRepository.deleteById(id);
+		
+	}
 }
