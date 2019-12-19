@@ -1,6 +1,7 @@
 package com.gitpushforce.sprintflow.controllers;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.validation.Valid;
 
@@ -28,11 +29,10 @@ import com.gitpushforce.sprintflow.services.SprintService;
 
 
 @RestController // Tells Spring that this class is a controller
-@RequestMapping(value = "api/sprints")
+@RequestMapping(value = "api/sprintflow")
 public class SprintController implements InitializingBean {
 	
-	private static final Logger log = Logger.getLogger(SprintController.class);
-	
+	//private static final Logger log = Logger.getLogger(SprintController.class);
 	
 	@Override
 	public void afterPropertiesSet() throws Exception {
@@ -58,13 +58,17 @@ public class SprintController implements InitializingBean {
 		return new ResponseEntity<List<Sprint>>(sprintService.findAll(), HttpStatus.OK);
 	}
 	
-
-	/*
-	@GetMapping(value = "/sprints/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Sprint> findByIdJoinUserstories(@PathVariable int id) {
-		return new ResponseEntity<Sprint>(sprintservice.findByIdJoinUserstores(id), HttpStatus.OK);
+	@GetMapping(value = "/dashboard/active")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public ResponseEntity<Set<Sprint>> findTopActiveSprints() {
+		return new ResponseEntity<Set<Sprint>>(sprintService.findTop3ActiveSprints(), HttpStatus.OK);
 	}
-	*/
+	
+	@GetMapping(value = "/dashboard/completed")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public ResponseEntity<Set<Sprint>> findTopCompletedSprints() {
+		return new ResponseEntity<Set<Sprint>>(sprintService.findTop4CompletedSprints(), HttpStatus.OK);
+	}
 	
 	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping(value = "/sprint/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -75,8 +79,9 @@ public class SprintController implements InitializingBean {
 	
 	@DeleteMapping(value = "/sprint/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public void deleteSprint(@PathVariable int id) {
+	public ResponseEntity<Void> deleteSprint(@PathVariable int id) {
 		sprintService.deleteSprint(id);
+		return new ResponseEntity<> (HttpStatus.NO_CONTENT);
 	}
 	
 	@CrossOrigin(origins = "http://localhost:4200")

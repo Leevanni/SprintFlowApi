@@ -1,7 +1,7 @@
 package com.gitpushforce.sprintflow.services;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,7 +48,7 @@ public class SprintService {
 	}
 
 	/**
-	 * 
+	 * Finds the sprint with the id that is sent through the parameter
 	 * @param id
 	 * @return
 	 */
@@ -56,20 +56,30 @@ public class SprintService {
 		return sprintRepository.findByIdJoinUserstories(id);
 	}
 	
-	
 	/**
-	 * 
+	 * Deletes a sprint in the database
 	 * @param id
-	 * @return
-	 *
-	public Sprint findById(int id) {
-		return sprintRepository.findById(id).get();
-	}
-	*/
-	
-	
+	 */
 	public void deleteSprint(int id) {
 		sprintRepository.deleteById(id);
 		
+	}
+	
+	/**
+	 * Finds the top 3 active sprints for the dashboard
+	 * @return
+	 */
+	public Set<Sprint> findTop3ActiveSprints(){
+		String status = "Completed";
+		return sprintRepository.findTop3ByStatusNotOrderByTimeStampDesc(status);
+	}
+	
+	/**
+	 * Finds the top 4 completed sprints for the dashboard.
+	 * @return
+	 */
+	public Set<Sprint> findTop4CompletedSprints(){
+		String status = "Completed";
+		return sprintRepository.findTop4ByStatusOrderByTimeStampDesc(status);
 	}
 }
