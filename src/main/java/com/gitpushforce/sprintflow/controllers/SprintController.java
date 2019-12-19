@@ -67,19 +67,20 @@ public class SprintController implements InitializingBean {
 	*/
 	
 	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping(value = "/sprints/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/sprint/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Sprint> findByIdJoinUserstories(@PathVariable int id) {
 		return new ResponseEntity<Sprint> (sprintService.findByIdJoinUserstores(id), HttpStatus.OK);
 	}
 	
+	
+	@DeleteMapping(value = "/sprint/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
-	@DeleteMapping(value = "/sprints/{id}")
 	public void deleteSprint(@PathVariable int id) {
 		sprintService.deleteSprint(id);
 	}
 	
 	@CrossOrigin(origins = "http://localhost:4200")
-	@PutMapping(value = "/sprints/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(value = "/sprint/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Sprint> update(@Valid @RequestBody Sprint sprint, @PathVariable int id){
 		if(!sprintRepository.existsById(id) || sprint.getId() == 0) {
 			return new ResponseEntity<Sprint> (HttpStatus.BAD_REQUEST);
