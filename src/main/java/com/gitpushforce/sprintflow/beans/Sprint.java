@@ -2,7 +2,6 @@ package com.gitpushforce.sprintflow.beans;
 
 import java.util.Date;
 import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,17 +11,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
 import org.springframework.stereotype.Component;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import java.sql.Timestamp;
 
 @Component
 @Entity
 @Table(name = "SPRINT")
 public class Sprint {
-	
 	@Id
 	@Column(name = "SPRINT_ID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -62,7 +58,7 @@ public class Sprint {
 	@Column(name = "STATUS")
 	private String status;
 	
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "TIMESTAMP")
 	private Date timeStamp;
 	
