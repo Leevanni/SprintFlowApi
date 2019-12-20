@@ -36,6 +36,7 @@ public class SprintService {
 		if(sprint.getUserStories() == null || sprint.getUserStories().isEmpty()) {
 			sprint.setStatus("planning");
 			return sprintRepository.save(sprint);
+			
 		}
 		else {
 			Sprint result = sprintRepository.save(sprint);

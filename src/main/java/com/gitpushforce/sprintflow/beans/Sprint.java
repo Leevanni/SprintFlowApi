@@ -58,12 +58,12 @@ public class Sprint {
 	@Column(name = "STATUS")
 	private String status;
 	
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@Column(name = "TIMESTAMP")
 	private Date timeStamp;
-	
 	public Sprint() {
 		super();
+		this.timeStamp = new Date();
 	}
 	public int getId() {
 		return id;
