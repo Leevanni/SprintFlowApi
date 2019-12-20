@@ -11,7 +11,7 @@ EXPOSE 8080
 
 # ADD your application to the container
 # ADD path-to-jar name-to-be-on-container
-ADD target/SprintFlow-Api.jar app.jar
+ADD target/SprintFlow-Api-0.1.jar app.jar
 
 # what command(s) to run inside the container when it starts
 #ENTRYPOINT for application (what happens when it start)
