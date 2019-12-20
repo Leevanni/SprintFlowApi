@@ -53,7 +53,6 @@ public class SprintService {
 		}
 	}	
 	
-
 	/**
 	 * Finds the sprint with the id that is sent through the parameter
 	 * @param id
