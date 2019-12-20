@@ -51,7 +51,7 @@ public class Userstory {
 	@Column(name = "STATUS")
 	private String status;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "SPRINT_ID")
 	@JsonBackReference(value = "sprint-userstories")
 	private Sprint sprint;

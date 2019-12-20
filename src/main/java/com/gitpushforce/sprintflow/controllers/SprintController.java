@@ -28,7 +28,7 @@ import com.gitpushforce.sprintflow.services.SprintService;
 
 
 @RestController // Tells Spring that this class is a controller
-@RequestMapping(value = "api/sprints")
+@RequestMapping(value = "api/sprintflow")
 public class SprintController implements InitializingBean {
 	
 	private static final Logger log = Logger.getLogger(SprintController.class);
@@ -59,13 +59,6 @@ public class SprintController implements InitializingBean {
 	}
 	
 
-	/*
-	@GetMapping(value = "/sprints/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Sprint> findByIdJoinUserstories(@PathVariable int id) {
-		return new ResponseEntity<Sprint>(sprintservice.findByIdJoinUserstores(id), HttpStatus.OK);
-	}
-	*/
-	
 	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping(value = "/sprint/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Sprint> findByIdJoinUserstories(@PathVariable int id) {
