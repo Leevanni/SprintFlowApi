@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: SprintFlow-Api
+
+  datasource:
+    #driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://mysql.coufvtggbhlb.us-east-2.rds.amazonaws.com:3306/SprintFlow
+    username: admin
+    password: adminadmin
+
+    
+ # jpa:
+  #  hibernate.ddl-auto: update
+   # generate-ddl: true
+   # show-sql: true
+    
