@@ -3,16 +3,20 @@ package com.gitpushforce.sprintflow.services;
 import java.util.List;
 import java.util.Set;
 
+
+import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gitpushforce.sprintflow.beans.Sprint;
 import com.gitpushforce.sprintflow.beans.Userstory;
+import com.gitpushforce.sprintflow.controllers.SprintController;
 import com.gitpushforce.sprintflow.data.SprintRepository;
 import com.gitpushforce.sprintflow.data.UserstoryRepository;
 
 @Service
 public class SprintService {
+	private static final Logger log = Logger.getLogger(SprintService.class);
 
 	@Autowired
 	private SprintRepository sprintRepository;
@@ -33,19 +37,22 @@ public class SprintService {
 	 * @return
 	 */
 	public Sprint save(Sprint sprint) {
+		
 		if(sprint.getUserStories() == null || sprint.getUserStories().isEmpty()) {
 			sprint.setStatus("planning");
 			return sprintRepository.save(sprint);
-			
 		}
 		else {
+			// Save userstories from sprint
 			Sprint result = sprintRepository.save(sprint);
 			for(Userstory userstory: sprint.getUserStories()) {
 				userstoryRepository.save(userstory);
+				log.info("Save Sprint: User story: " + userstory.toString());
 			}
 			return result;
-		}	
-	}
+		}
+	}	
+	
 
 	/**
 	 * Finds the sprint with the id that is sent through the parameter
